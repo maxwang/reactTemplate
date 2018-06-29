@@ -16,13 +16,25 @@ module.exports = {
             loader: "html-loader"
           }
         ]
-      }
+      },
+      { test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
+      },
     ]
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
+      // minify: {
+      //   collapseWhitespace: true,
+      //   collapseInlineTagWhitespace: true,
+      //   removeComments: true,
+      //   removeRedundantAttributes: true
+      // }
     })
   ]
 };
