@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import * as counterAction from '../actions/count';
 
 class Counter extends React.Component {
     // constructor(props) {
@@ -28,11 +29,10 @@ export function mapStateToProps(state) {
 
 export function mapDispatchToProps(dispatch) {
     return {
-        onInCreasementClick: () => {
-            console.log('clickedin');
-            const action = { type: 'INCREMENT'};
-            dispatch(action);
-        }
+        onInCreasementClick() {
+            dispatch(counterAction.incrementCounter());
+        } 
     }
-};
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
